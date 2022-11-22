@@ -33,7 +33,7 @@ library(DT)
 
 
 
-#Study Title: Rethinking Traditional Values: Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z
+#Study Title: Rethinking Traditional Values: Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z\centering
 
 
 ## Introduction/centering
@@ -43,16 +43,21 @@ Climate change continues to be perceived as a significant risk among Americans, 
 
 We hypothesize that the way in which media messages about climate change are framed and interpreted negatively impacts Millennial and Generation Z perceptions about having children.
 
-##Specific Aims/Study Objectives:
+##Specific Aims/Study Objectives\centering
 This analysis intends to answer the following research question: What effect do messages about climate change have on Millennials and Generation Z and their desire to have children?
 
 
+<<<<<<< HEAD
 ## Methods \centering
 We used the following packages: `janitor` firke2020janitor, `psych` revelle2015package, `skimr` @skimr, `here` @here, `knitr` @knitr, `rio` @rio, `readxl @readxl`, `DT` @DT and `tidyverse` @tidyverse. 
+=======
+## Methods, Materials, and Analysis\centering
+We used the following packages: `janitor` firke2020janitor, `psych` revelle2015package, `skimr` @skimr, `here` @here, `knitr` @knitr, `rio` @rio, `readxl @readxl`,, `DT` @DT and `tidyverse` @tidyverse. 
+>>>>>>> main
 
 After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pibot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
 
-## Methods, Materials, and Analysis:
+
 
 Researchers implemented a two-step, mixed-method approach to assess Millennial and Generation Z perceptions on family planning and to what extent (if any) climate change influences these views. For the purposes of this class, we will be analyzing the survey data we collected. The survey consisted of an online Likert-type questionnaire that was distributed to Ghanaian Millennials (those born between 1981 and 1996) and Generation Z adults (18 years old or older; those born between 1997 and 2004). The current sample size is made up of answers from 130 respondents. Through this survey, participants were asked questions about their personal stances on having children, perceptions of climate change, how much of an impact climate change has on their family planning, and their feelings towards the effectiveness of climate change messages. A scale from zero to five was provided for respondents to record their answers, with zero indicating no impact and five stipulating high impact. 
 
