@@ -1,0 +1,186 @@
+---
+title: "Data Script Draft"
+author: "Laura Gattis, Emmanuel Maduneme, Megan Denneny, Sam Lorenzo"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true 
+    toc_collapsed: true
+    toc_depth: 4
+    number_sections: true
+    theme: lumen
+bibliography: data_script_references.bib
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE,
+                      eval = TRUE,
+                      message = FALSE)
+library(tidyverse)
+library(psych)
+library(skimr)
+library(readr)
+library(janitor)
+library(rio)
+library(here)
+library(ggthemes)
+library(readxl)
+library(DT)
+library(tinytex)
+
+```
+
+
+## Introduction\centering
+Laura and Megan making commits
+
+
+## Methods \centering
+We used the following packages: `janitor` firke2020janitor, `psych` revelle2015package, `skimr` @skimr, `here` @here, `knitr` @knitr, `rio` @rio, `readxl @readxl`,, `DT` @DT and `tidyverse` @tidyverse. 
+
+After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pibot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
+
+These are some descriptive information about the data. 
+
+```{r tidying data}
+css_ghana <- read_excel(here("Data", "Climate_Synthetic.xlsx"))
+
+
+
+css_ghana <- css_ghana %>% 
+  pivot_longer(c("Male", "Female"), 
+               names_to = "Gender",
+               values_to = "value") %>% 
+  select(-(starts_with("1.")), -value,1:2,Gender, everything()) %>% 
+  filter(Status == "Completed") %>% 
+  rename(q8_cc_priority = "8. How should addressing issues of climate change be prioritized?") %>% 
+  filter(!is.na(q8_cc_priority)) %>% 
+  rename(age_generation =  "Which age generation below applies to you",
+    q_10_cc_message_effec_providing_info  = 
+      "10. Think about messages you’ve seen in the media about climate change. How effective were they in terms of providing information?",
+    q_17_cc_infuence_child_desire = 
+      "17. How much of an influence has climate change had on your desire to have children?",
+    q7_cc_concerned = "7. How concerned are you about climate change?") %>% 
+  mutate(age_gen_recoded = 
+           case_when(age_generation ==  "Other" ~ "Others",
+                     age_generation == "1997-2004" ~ "Gen_Z",
+                     TRUE ~ "Millennials")) %>% 
+   select(1:3, age_gen_recoded, everything())
+ 
+names(css_ghana)[8] = "q_16_not_parent_chid_desire"
+css_ghana <- css_ghana %>% 
+  filter(!is.na(q_10_cc_message_effec_providing_info),
+         !is.na( q_17_cc_infuence_child_desire),
+         !is.na(q_16_not_parent_chid_desire),
+         !is.na(q8_cc_priority))
+
+css_ghana$Gender <- as.factor(css_ghana$Gender)
+
+css_ghana$age_gen_recoded <- as.factor(css_ghana$age_gen_recoded)
+
+ css_ghana$q7_cc_concerned <- recode(css_ghana$q7_cc_concerned, "Not at all" = 1, "Not very concerned" = 2 , "Slightly concerned" = 3, "Moderately concerned" = 4, "Very concerned" = 5,     
+         "Extremely concerned" = 6)
+  
+
+## the row names were not properly written so I had to recode it  
+css_ghana <- css_ghana %>% 
+  mutate(q8_cc_priority = case_when(
+    q8_cc_priority == "Low priority" ~"1",
+    q8_cc_priority == "Moderate priority" ~ "3",
+    q8_cc_priority == "Major priority" ~ "4",
+    q8_cc_priority == "Top priority" ~ "5",
+    q8_cc_priority == "Minor priority" ~ "2",
+    q8_cc_priority == " Minor priority" ~ "2",
+  ))
+
+css_ghana$q_16_not_parent_chid_desire <- recode(css_ghana$q_16_not_parent_chid_desire,
+  "Extremely high desire" = 7, "High desire" = 6,  "Minor desire" = 5, 
+  "Moderate desire" = 4, "No desire or unsure" = 3,  "Somewhat dissatisfied" = 2,
+  "Very low desire" = 1)  
+
+css_ghana$q_17_cc_infuence_child_desire <- recode(css_ghana$q_17_cc_infuence_child_desire,
+"Barely any influence" = 6, "Major influence" = 5,  "Minor influence" = 4,     "Moderate influence" = 3,
+ "No influence at all" = 2, "Top influence"  = 1)
+
+
+css_ghana$q_10_cc_message_effec_providing_info <- recode(css_ghana$q_10_cc_message_effec_providing_info,
+"Extremely effective" = 6,               "Moderately effective"  = 5,                 
+ "Not effective at all or Not applicable" = 4, "Slightly effective"  = 3,                 
+ "Very effective" = 2 ,                    "Very low effect" = 1)
+
+
+css_ghana %>% 
+  select(!age_generation, !value)
+
+
+## Pivot Wider for Assignment
+css_ghana %>% 
+  pivot_wider(
+    names_from = age_gen_recoded,
+    values_from = age_generation
+  ) %>%
+  pivot_longer(
+    cols = c(Millennials, Gen_Z),
+    names_to = "age_generation_pivot",
+    values_to = "age_brackets"
+  ) %>% 
+  select(-starts_with("1.")) %>% 
+  select(-value, -Others, -age_brackets) %>% 
+  head() %>% 
+  datatable()
+  
+
+```
+
+Sam Making theese commits 
+## Plotting those who were concerned about climate change by age generaton
+```{r Descriptives }
+names(css_ghana)
+
+css_ghana %>% 
+  ggplot(aes(q8_cc_priority))+
+  geom_bar(aes(fill = age_gen_recoded), position = "dodge") +
+  theme_minimal() +
+  labs(x = "Climate Change Should Be Prioritized (1 = Low, 5 = High)",
+         y = "Frequency",
+         title = "Climate Change Priority By Age Generation",
+       subtitle = "(Data obtained from a survey in Ghana, West Africa)")
+
+
+```
+
+
+```{r}
+css_ghana %>% 
+  mutate(q8_cc_priority = as.numeric(q8_cc_priority)) %>% 
+ group_by(age_gen_recoded) %>% 
+  summarize(mean_priority = mean(q8_cc_priority, na.rm = TRUE),
+            mean_concerned = mean(q7_cc_concerned, na.rm = TRUE),
+            mean_desire_for_child = mean(q_17_cc_infuence_child_desire, na.rm = TRUE)) %>% 
+   ggplot(aes(age_gen_recoded, mean_desire_for_child, fill = age_gen_recoded)) +
+  geom_col() +
+  theme_minimal() +
+   labs(x = "Age Generation",
+         y = "Average Influence of Climate Change on Deire For Children",
+         title = "Climate Change Influence on Child Desires",
+         subtitle = "(Data obtained from a survey in Ghana, West Africa)") +
+  scale_fill_manual(values = c("grey0",
+                              "goldenrod", 
+                              "goldenrod4")) +
+  coord_flip()
+ 
+```
+```{r}
+names(css_ghana)
+css_ghana %>% 
+  group_by(age_gen_recoded, q_10_cc_message_effec_providing_info) %>% 
+  summarize(mean_message = mean(q_10_cc_message_effec_providing_info)) %>% 
+  ggplot(aes(age_gen_recoded, mean_message)) + 
+  geom_col(aes(fill = age_gen_recoded))
+  
+```
+
+
