@@ -33,7 +33,19 @@ library(tinytex)
 ```
 
 
-## Introduction\centering
+
+#Study Title: Rethinking Traditional Values: Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z
+
+
+## Introduction/centering
+
+
+Climate change continues to be perceived as a significant risk among Americans, especially among younger demographics. Millennials, in particular, those born between 1981 and 1996, were found to be the group most adamant about prioritizing the issue of climate change, with 71 percent of Millennials indicating climate change to be the most important issue to address in order to protect and sustain the planet for future generations (Funk). According to a 2020 poll by Morning Consult, one-in-four adults under the age of 45 indicated that climate change plays a role (either major or minor) in their decision to not have children (Jenkins). A prior survey also measured the various reasons why young adults are choosing to have fewer than their ideal number of children, with 37 percent of respondents expressing a concern about global instability and 33 percent specifying the burden of climate change as key motives (Miller). 
+
+We hypothesize that the way in which media messages about climate change are framed and interpreted negatively impacts Millennial and Generation Z perceptions about having children.
+
+##Specific Aims/Study Objectives:
+This analysis intends to answer the following research question: What effect do messages about climate change have on Millennials and Generation Z and their desire to have children?
 
 
 ## Methods \centering
