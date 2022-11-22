@@ -53,6 +53,15 @@ We used the following packages: `janitor` firke2020janitor, `psych` revelle2015p
 
 After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pibot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
 
+## Methods, Materials, and Analysis:
+
+Researchers implemented a two-step, mixed-method approach to assess Millennial and Generation Z perceptions on family planning and to what extent (if any) climate change influences these views. For the purposes of this class, we will be analyzing the survey data we collected. The survey consisted of an online Likert-type questionnaire that was distributed to Ghanaian Millennials (those born between 1981 and 1996) and Generation Z adults (18 years old or older; those born between 1997 and 2004). The current sample size is made up of answers from 130 respondents. Through this survey, participants were asked questions about their personal stances on having children, perceptions of climate change, how much of an impact climate change has on their family planning, and their feelings towards the effectiveness of climate change messages. A scale from zero to five was provided for respondents to record their answers, with zero indicating no impact and five stipulating high impact. 
+
+## Data Preparation Script Plan:
+
+We are utilizing the data collected to quantitatively determine if there are any correlations between views amongst demographics and to see if responses tend to skew towards specific perceptions (e.g., high fear of climate change, low desire to have children). Our plan is to use our data to better visualize participant responses and categorize information into a variety of sets. We are employing a randomizer tool to skew the responses we received. 
+
+
 These are some descriptive information about the data. 
 
 ```{r Descriptives }
