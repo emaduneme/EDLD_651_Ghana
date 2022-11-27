@@ -57,7 +57,7 @@ We used the following packages: `janitor` firke2020janitor, `psych` revelle2015p
 
 After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pibot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
 
-
+#Hey I really liked the explaination mentioned prior to writing the codes. Makes it easier for the reader to follow  through. 
 
 Researchers implemented a two-step, mixed-method approach to assess Millennial and Generation Z perceptions on family planning and to what extent (if any) climate change influences these views. For the purposes of this class, we will be analyzing the survey data we collected. The survey consisted of an online Likert-type questionnaire that was distributed to Ghanaian Millennials (those born between 1981 and 1996) and Generation Z adults (18 years old or older; those born between 1997 and 2004). The current sample size is made up of answers from 130 respondents. Through this survey, participants were asked questions about their personal stances on having children, perceptions of climate change, how much of an impact climate change has on their family planning, and their feelings towards the effectiveness of climate change messages. A scale from zero to five was provided for respondents to record their answers, with zero indicating no impact and five stipulating high impact. 
 
@@ -113,6 +113,8 @@ css_ghana$age_gen_recoded <- as.factor(css_ghana$age_gen_recoded)
 
  css_ghana$q7_cc_concerned <- recode(css_ghana$q7_cc_concerned, "Not at all" = 1, "Not very concerned" = 2 , "Slightly concerned" = 3, "Moderately concerned" = 4, "Very concerned" = 5,     
          "Extremely concerned" = 6)
+ 
+# Awesome recoding!
   
 
 ## the row names were not properly written so I had to recode it  
@@ -141,6 +143,7 @@ css_ghana$q_10_cc_message_effec_providing_info <- recode(css_ghana$q_10_cc_messa
  "Not effective at all or Not applicable" = 4, "Slightly effective"  = 3,                 
  "Very effective" = 2 ,                    "Very low effect" = 1)
 
+#Suggestion: Spacing in the above code would have made it easier to read. However, I really appreciate the recoding.
 
 css_ghana %>% 
   select(!age_generation, !value)
@@ -210,6 +213,9 @@ css_ghana %>%
   summarize(mean_message = mean(q_10_cc_message_effec_providing_info)) %>% 
   ggplot(aes(age_gen_recoded, mean_message)) + 
   geom_col(aes(fill = age_gen_recoded))
+
+#Amazing plots. Easier to read and interpret. 
+#Just an idea if ridges plot could provide age wise or year wise differentiation too 🙂
   
 ```
 
