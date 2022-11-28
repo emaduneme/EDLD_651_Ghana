@@ -55,7 +55,7 @@ We used the following packages: `janitor` firke2020janitor, `psych` revelle2015p
 We used the following packages: `janitor` firke2020janitor, `psych` revelle2015package, `skimr` @skimr, `here` @here, `knitr` @knitr, `rio` @rio, `readxl @readxl`,, `DT` @DT and `tidyverse` @tidyverse. 
 >>>>>>> main
 
-After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pibot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
+After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pivot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
 
 
 
@@ -165,6 +165,8 @@ css_ghana %>%
 
 ```
 
+One thing I learned from reading this document is the utility of using negative arguments for data cleaning. By this I mean, often in my mind when I am downsizing the dataset, I tend to select the variables/info that I want and put them into a new data table. This is a good  reminder that sometimes it is easier and more efficient to instead get rid of the columns I don't want. 
+
 ## Plotting those who were concerned about climate change by age generaton
 ```{r Descriptives}
 
@@ -175,11 +177,19 @@ css_ghana %>%
   labs(x = "Climate Change Should Be Prioritized (1 = Low, 5 = High)",
          y = "Frequency",
          title = "Climate Change Priority By Age Generation",
-       subtitle = "(Data obtained from a survey in Ghana, West Africa)")
+       subtitle = "(Data obtained from a survey in Ghana, West Africa)",
+        fill="Generation")
 
 
 ```
 
+1st strength: I think a basic histogram is a very clear way to display this data! I like graphs like this that are direct and to the point. 
+
+1st thing to look at: One thing to change would perhaps be changing the color schemes of all the graphs to be cohesive? 
+
+2nd thing to look at: I also noticed that the legend label wasn't changed on any of the graphs. You can do this with the `labs()` that you are already calling with the argument fill (I added it in above). 
+
+3rd thing to look at: On the second and third graphs, you can even probably get rid of the legend if you like (since that info is already incorporated into the main graph labels). I did this on the second visual below with `guides(fill="none")` so you can see what it looks like.
 
 ```{r}
 css_ghana %>% 
@@ -191,8 +201,9 @@ css_ghana %>%
    ggplot(aes(age_gen_recoded, mean_desire_for_child, fill = age_gen_recoded)) +
   geom_col() +
   theme_minimal() +
+  guides(fill="none") +
    labs(x = "Age Generation",
-         y = "Average Influence of Climate Change on Deire For Children",
+         y = "Average Influence of Climate Change on Desire For Children",
          title = "Climate Change Influence on Child Desires",
          subtitle = "(Data obtained from a survey in Ghana, West Africa)") +
   scale_fill_manual(values = c("grey0",
@@ -202,6 +213,7 @@ css_ghana %>%
  
 ```
 
+2nd strength: I like that you changed the colors in the above graph. It helps give the paper it's own character instead of just the default. There is also a small type on the x-axis label (said "Deire" instead of "Desire")
 
 ```{r}
 names(css_ghana)
@@ -213,3 +225,6 @@ css_ghana %>%
   
 ```
 
+3rd Strength: The way you make your graphs with a pipeline is efficient. Instead of grouping/summarizing and then separately making a graph with that result, it is all run in the same bit so you only have to run it once.
+
+(This is just reiterating my points for the first graph above :) ) I know you guys are still working on these (like us all), so you're probably already planning on doing this, but I would change the axis titles to be more clear instead of the default variable names. And maybe even make it the same color scheme as the 2nd visual :)
