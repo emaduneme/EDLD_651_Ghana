@@ -49,7 +49,7 @@ editor: visual
 
 ## Update:
 
-![](./theoffice.png)
+![](/Users/lauragattis/Documents/R%20Projects/theoffice.png)
 
 ## Megan's Journey
 
@@ -90,11 +90,7 @@ editor: visual
 
 ## Figures
 
-![](./screenshot1.png)
-
 ## Figures Continued
-
-![](./screenshot2.png)
 
 ## Future R Hurdles
 
