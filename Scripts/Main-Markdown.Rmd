@@ -217,15 +217,16 @@ css_ghana %>%
 css_ghana %>% 
   group_by(age_gen_recoded) %>% 
   summarise(mean_message = mean(q_10_cc_message_effec_providing_info, na.rm = TRUE),
-            avrg_desire = mean(q_17_cc_infuence_child_desire)) %>% 
+            avrg_desire = mean(q_17_cc_infuence_child_desire, fill = age_gen_recoded)) %>% 
   ggplot(aes(mean_message, avrg_desire)) + 
-  geom_point(aes(col = age_gen_recoded), size = 5)+
+  geom_point(aes(col = age_gen_recoded),size = 5)+
   geom_smooth() +
-   guides(fill=guide_legend(title= "Generation")) +
+  theme_bw() +
     labs(x = "Climate Change Media Effectiveness",
          y = "Average Influence of Climate Change on Desire to Have Children",
          title = "Climate Change Messaging on Desire to Have Children",
-         subtitle = "(Data obtained from a survey in Ghana, West Africa)") 
+         subtitle = "(Data obtained from a survey in Ghana, West Africa)") +
+   guides(color=guide_legend(title= "Generation"))
    
   
 ```
@@ -253,7 +254,7 @@ research_questions <- css_ghana %>%
 ```
 
 
-```{r results}
+```{r results, eval=FALSE, error=TRUE}
 
 research_questions %>% 
   group_by(age_gen_recoded) %>% 
@@ -276,7 +277,9 @@ research_questions %>%
         )
 
 ```
-```{r}
+
+
+```{r, eval=FALSE, error=TRUE}
 agg_data %>% 
  summarise(research_questions = mean(research_questions, na.rm = TRUE), 
            final_responses = mean(final_responses, na.rm = TRUE)) %>% 
