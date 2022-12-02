@@ -47,7 +47,7 @@ editor: visual
 -   I took this class to expand my research skills
 -   And to better than my partner at 'R'!
 
-## Update
+## Update:
 
 ![](./theoffice.png)
 
