@@ -16,6 +16,8 @@ csl: apa.csl
 
 # Abstract\centering
 
+Climate change is perceived as a significant threat, especially among younger demographics. Millennials (born 1981-1996) are the most adamant about reversing the issue, with 71% stating it is a top priority to protect and sustain the planet for future generations. Generation Z adults, those over 18 (born 1997-2004), also share similar sentiments. According to prior studies, 1-in-4 U.S. adults under the age of 45 revealed that climate change risks motivate their decision to not have children. This study is the initial phase in a series of research. We have collected more than 150 surveys and began interviewing Millennials and Generation Z adults in Ghana. Both methods explore how participants view climate change messages and how this influences family planning. Our next step is to duplicate this study in the U.S. and eventually other countries to provide a comprehensive, comparative analysis of climate change and family planning perceptions across the globe.
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE,
@@ -230,8 +232,11 @@ css_ghana %>%
   
 ```
 
+# Initial Findings and Results\centering
 
-# Findings and Results\centering
+As mentioned, we implemented a two-step, mixed-method approach to assess Millennial and Generation Z perceptions on family planning and to what extent climate change influences these views. The first step was to administer a Likert-type questionnaire where participants were asked about their personal stances on having children, perceptions of climate change, how much of an impact climate change has on their desire to have children, and their feelings towards the effectiveness of climate change messages. A scale from zero to five was provided for respondents to record their answers, with zero indicating no impact and five stipulating high impact. The survey concluded with an optional section where volunteers could indicate if they are willing to participate in a subsequent one-on-one interview to discuss their answers further. The survey data collected is currently being quantitatively assessed for correlations between views and to see if responses tend to skew towards specific perceptions (e.g., high fear of climate change, low desire to have children). The second part of the study is still ongoing, which consists of one-on-one interviews with volunteers. Upon completing data collection, we will transcribe and qualitatively code responses to observe if any common themes exist between participant responses.
+
+Based on our preliminary analysis, Ghanaian participants who indicated that they were “extremely concerned” about climate change also tended to state that they have experienced some level of negative emotions when exposed to climate change messages, as well as mixed responses about their desire to have children due to climate change risks. Once we complete our analyses, we expect to uncover a more wholistic narrative of the Ghanaian perspective, which may include external influences such as cultural and societal values.
 
 
 ```{r findings}
@@ -277,7 +282,7 @@ research_questions %>%
 
 ```
 ```{r}
-agg_data %>% 
+css_ghana %>% 
  summarise(research_questions = mean(research_questions, na.rm = TRUE), 
            final_responses = mean(final_responses, na.rm = TRUE)) %>% 
   mutate(
@@ -302,6 +307,7 @@ agg_data %>%
 ```
 
 # Discussion\centering
+
 
 \newpage
 # References\centering
