@@ -243,7 +243,7 @@ research_questions <- css_ghana %>%
   rename(
     "How concerned are you about climate change?" = q7_cc_concerned,
     "How should addressing issues of climate change be prioritized?" = q8_cc_priority,
-    "Think about messages you’ve seen in the media about climate change. How effective were they in terms of providing information?" = q_10_cc_message_effec_providing_info,
+    "How effective is climate change news in terms of providing information?" = q_10_cc_message_effec_providing_info,
     "How much of an influence has climate change had on your desire to have children?" = q_17_cc_infuence_child_desire
     ) %>% 
   view()
@@ -256,10 +256,16 @@ research_questions <- css_ghana %>%
 ```{r results}
 
 research_questions %>% 
-  group_by(age_gen_recoded) %>% 
-  summarise(research_questions = mean(research_questions, na.rm = TRUE)) %>% 
- mutate(research_questions = factor(research_questions, level = c("How concerned are you about climate change?", "How should addressing issues of climate change be prioritized?", "Think about messages you’ve seen in the media about climate change. How effective were they in terms of providing information?", "How much of an influence has climate change had on your desire to have children?"))) %>% 
-  ggplot(aes(x = NROW(css_ghana), y = research_questions, fill = age_gen_recoded)) + 
+  pivot_longer(
+    cols = -age_gen_recoded,
+    names_to = "r_questions",
+    values_to = "each_score",
+    values_transform = list(each_score = as.integer)
+  ) %>% 
+  group_by(r_questions, age_gen_recoded) %>% 
+  summarize(avrg_score = mean(each_score, na.rm = TRUE)) %>% 
+ mutate(research_questions = factor(r_questions, level = c("How concerned are you about climate change?", "How should addressing issues of climate change be prioritized?", "How effective is climate change news in terms of providing information?", "How much of an influence has climate change had on your desire to have children?"))) %>% 
+  ggplot(aes(x = age_gen_recoded, y = avrg_score, fill = age_gen_recoded)) + 
       geom_col(position = "dodge") + 
       facet_wrap(~research_questions, 
                  ncol = 1,
@@ -268,12 +274,13 @@ research_questions %>%
       scale_fill_colorblind() + 
       labs(
         title = "Climate Change and Family Planning Perceptions", 
-        subtitle = "by Generation", 
-        x = "Number of Responses", 
+        subtitle = "By Generation", 
+        x = "Generation", 
         y = "Level of Perception",
         fill = "Generation", 
         caption = "(Data obtained from a survey in Ghana, West Africa)"
-        )
+        )+
+  coord_flip()
 
 ```
 ```{r}
