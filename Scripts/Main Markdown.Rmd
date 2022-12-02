@@ -310,7 +310,7 @@ css_ghana %>%
          y = "Level of Perception",
          fill = "Generation", 
          caption = "(Data obtained from a survey in Ghana, West Africa)"
-         )
+       )
 ```
 
 # Discussion\centering
