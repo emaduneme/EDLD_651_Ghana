@@ -288,30 +288,6 @@ research_questions %>%
   coord_flip()
 
 ```
-```{r}
-css_ghana %>% 
- summarise(research_questions = mean(research_questions, na.rm = TRUE), 
-           final_responses = mean(final_responses, na.rm = TRUE)) %>% 
-  mutate(
-    research_questions = c("How concerned are you about climate change?", "How should addressing issues of climate change be prioritized?", "Think about messages you’ve seen in the media about climate change. How effective were they in terms of providing information?", "How much of an influence has climate change had on your desire to have children?"),
-    final_responses = factor(final_responses, level = c(1, 2, 3, 4, 5))
-    ) %>% 
-  ggplot(aes(x = NROW(css_ghana), y = final_responses, fill = age_gen_recoded)) + 
-  geom_col(position = "dodge") + 
-  facet_wrap(~research_questions, 
-                  ncol = 1,
-                  nrow = 6) + 
-       theme_minimal()  + 
-       scale_fill_colorblind() + 
-       labs(
-         title = "Climate Change and Family Planning Perceptions", 
-         subtitle = "by Generation", 
-         x = "Number of Responses", 
-         y = "Level of Perception",
-         fill = "Generation", 
-         caption = "(Data obtained from a survey in Ghana, West Africa)"
-       )
-```
 
 # Discussion\centering
 
