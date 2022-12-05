@@ -51,10 +51,7 @@ This analysis intends to answer the following research question: What effect do 
 
 
 # Methods, Materials, and Analysis\centering
-We used `R programming` [@R] for analysis with the following packages: `janitor` [@janitor], `psych` [@psych], `skimr` [@skimr], `here` [@here], `knitr` [@knitr], `rio` [@rio], `readxl` [@readxl], `DT` [@DT] and `tidyverse` [@tidyverse]. 
-
-
-After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pivot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
+We used `R programming` [@R] for analysis with the following packages: `janitor` [@janitor], `psych` [@psych], `skimr` [@skimr], `here` [@here], `knitr` [@knitr], `rio` [@rio], `readxl` [@readxl], `DT` [@DT] and `tidyverse` [@tidyverse]. After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pivot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
 
 
 Researchers implemented a two-step, mixed-method approach to assess Millennial and Generation Z perceptions on family planning and to what extent (if any) climate change influences these views. For the purposes of this class, we will be analyzing the survey data we collected. The survey consisted of an online Likert-type questionnaire that was distributed to Ghanaian Millennials (those born between 1981 and 1996) and Generation Z adults (18 years old or older; those born between 1997 and 2004). The current sample size is made up of answers from 130 respondents. Through this survey, participants were asked questions about their personal stances on having children, perceptions of climate change, how much of an impact climate change has on their family planning, and their feelings towards the effectiveness of climate change messages. A scale from zero to five was provided for respondents to record their answers, with zero indicating no impact and five stipulating high impact. 
@@ -65,7 +62,6 @@ We are utilizing the data collected to quantitatively determine if there are any
 
 
 These are some descriptive information about the data. 
-
 
 
 ```{r tidying data, include=FALSE}
