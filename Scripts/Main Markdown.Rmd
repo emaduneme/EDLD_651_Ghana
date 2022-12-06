@@ -1,6 +1,7 @@
 ---
-title: "Rethinking Traditional Values: Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z"
-author: "Laura Gattis, Emmanuel Maduneme, Megan Denneny, Sam Lorenzo"
+title: "Rethinking Traditional Values"
+subtitle: "Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z"
+author: "Laura Gattis, Sam Lorenzo, Megan Denneny, Emmanuel Maduneme"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -41,7 +42,7 @@ library(DT)
 
 # Introduction\centering
 
-Climate change continues to be perceived as a significant risk among Americans, especially among younger demographics. Millennials, in particular, those born between 1981 and 1996, were found to be the group most adamant about prioritizing the issue of climate change, with 71 percent of Millennials indicating climate change to be the most important issue to address in order to protect and sustain the planet for future generations (Funk). According to a 2020 poll by Morning Consult, one-in-four adults under the age of 45 indicated that climate change plays a role (either major or minor) in their decision to not have children (Jenkins). A prior survey also measured the various reasons why young adults are choosing to have fewer than their ideal number of children, with 37 percent of respondents expressing a concern about global instability and 33 percent specifying the burden of climate change as key motives (Miller). 
+Climate change continues to be perceived as a significant risk among Americans, especially among younger demographics. Millennials, in particular, those born between 1981 and 1996, were found to be the group most adamant about prioritizing the issue of climate change, with 71 percent of Millennials indicating climate change to be the most important issue to address in order to protect and sustain the planet for future generations [@funk2021]. According to a 2020 poll by Morning Consult, one-in-four adults under the age of 45 indicated that climate change plays a role (either major or minor) in their decision to not have children [@jenkins2020]. A prior survey also measured the various reasons why young adults are choosing to have fewer than their ideal number of children, with 37 percent of respondents expressing a concern about global instability and 33 percent specifying the burden of climate change as key motives [@miller2018] 
 
 We hypothesize that the way in which media messages about climate change are framed and interpreted negatively impacts Millennial and Generation Z perceptions about having children.
 
@@ -282,7 +283,9 @@ research_questions %>%
   coord_flip()
 
 ```
-```{r}
+
+
+```{r eval=FALSE}
 css_ghana %>% 
  summarise(research_questions = mean(research_questions, na.rm = TRUE), 
            final_responses = mean(final_responses, na.rm = TRUE)) %>% 
