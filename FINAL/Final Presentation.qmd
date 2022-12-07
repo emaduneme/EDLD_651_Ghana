@@ -1,16 +1,14 @@
 ---
-title: "EDLD 651 Final Project"
+title: "Rethinking Traditional Values"
+subtitle: "Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z"
+author: "Laura Gattis, Megan Denneny, Emmanuel Maduneme, Samantha Lorenzo"
 format: 
   revealjs:
     theme: moon
 editor: visual
 ---
 
-## Rethinking Traditional Values:
 
-**Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z**
-
-*Laura Gattis, Megan Denneny, Emmanuel Maduneme, Samantha Lorenzo*
 
 ## Synopsis
 
@@ -19,6 +17,10 @@ editor: visual
 -   Millennials were found to be the group most adamant about prioritizing climate change
 
 -   71% of Millennials said climate change is the most important issue in order to protect and sustain the planet
+
+## Background
+![](./ghanapic.png)
+
 
 ## Laura's Journey
 
@@ -49,7 +51,7 @@ editor: visual
 
 ## Update:
 
-![](./theoffice.png)
+![](./theoffice.png) 
 
 ## Megan's Journey
 
@@ -69,24 +71,27 @@ editor: visual
 -   Of course, because I am now very quantitative, it is one of the standard data analysis tools, meaning I should know it.
 -   This class gave me an opportunity to appreciate it more.
 
-## Challenges we Faced
-
--   
-
 ## Successes
 
 -   Getting charts to run!
 -   This project was sent into a large conference and we're hopeful it gets accepted
 
+## Successes
+
+![](./whoop.gif) 
+
 ## Current Challenges
 
--   Waiting for the other results (we have 200ish more surveys heading our way!)
+-   Waiting for the other results (we have 300ish more surveys heading our way!)
 -   Analyzing all questions from the survey (we shortened the list of questions to five for this project)
+- Working with a team of varying R proficiency
+
+## Challenges
+![](./challenges.png) 
 
 ## Findings
-
--   We found that there is a distinct correlation between climate change anxiety and desires to have children
--   
+-   We found that those who describe themselves as Gen-Z were likely to say media is effective at providing climate change information.
+- However, they are less likely than millenials to say they desire to have children.
 
 ## Figures
 
@@ -98,4 +103,10 @@ editor: visual
 
 ## Future R Hurdles
 
--   t
+- Coding all the questions for the paper we submitted to ICA
+- Running the statistical test
+- Joining the new data set with the current data set
+
+## Thanks!
+
+![](./goodbye.png)

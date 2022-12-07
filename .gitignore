@@ -35,3 +35,29 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+
+FINAL/challenging.png
+
+FINAL/Emmanuel's Twist/.DS_Store
+
+FINAL/Final Presentation.html
+
+FINAL/Final Presentation.qmd
+
+FINAL/Final-Presentation.aux
+
+FINAL/Final-Presentation.log
+
+FINAL/Final-Presentation.out
+
+FINAL/Final-Presentation.pdf
+
+FINAL/Final-Presentation.tex
+
+FINAL/ghanapic.png
+
+FINAL/goodbye.png
+
+FINAL/theoffice.png
+
+FINAL/whoop.gif

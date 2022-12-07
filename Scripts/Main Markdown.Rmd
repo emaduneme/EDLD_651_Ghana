@@ -1,6 +1,7 @@
 ---
-title: "Rethinking Traditional Values: Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z"
-author: "Laura Gattis, Emmanuel Maduneme, Megan Denneny, Sam Lorenzo"
+title: "Rethinking Traditional Values"
+subtitle: "Analyzing How Messages of Climate Change Affect Family Planning Among Millennials and Generation Z"
+author: "Laura Gattis, Sam Lorenzo, Megan Denneny, Emmanuel Maduneme"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -41,7 +42,7 @@ library(DT)
 
 # Introduction\centering
 
-Climate change continues to be perceived as a significant risk among Americans, especially among younger demographics. Millennials, in particular, those born between 1981 and 1996, were found to be the group most adamant about prioritizing the issue of climate change, with 71 percent of Millennials indicating climate change to be the most important issue to address in order to protect and sustain the planet for future generations (Funk). According to a 2020 poll by Morning Consult, one-in-four adults under the age of 45 indicated that climate change plays a role (either major or minor) in their decision to not have children (Jenkins). A prior survey also measured the various reasons why young adults are choosing to have fewer than their ideal number of children, with 37 percent of respondents expressing a concern about global instability and 33 percent specifying the burden of climate change as key motives (Miller). 
+Climate change continues to be perceived as a significant risk among Americans, especially among younger demographics. Millennials, in particular, those born between 1981 and 1996, were found to be the group most adamant about prioritizing the issue of climate change, with 71 percent of Millennials indicating climate change to be the most important issue to address in order to protect and sustain the planet for future generations [@funk2021]. According to a 2020 poll by Morning Consult, one-in-four adults under the age of 45 indicated that climate change plays a role (either major or minor) in their decision to not have children [@jenkins2020]. A prior survey also measured the various reasons why young adults are choosing to have fewer than their ideal number of children, with 37 percent of respondents expressing a concern about global instability and 33 percent specifying the burden of climate change as key motives [@miller2018] 
 
 We hypothesize that the way in which media messages about climate change are framed and interpreted negatively impacts Millennial and Generation Z perceptions about having children.
 
@@ -50,13 +51,8 @@ This analysis intends to answer the following research question: What effect do 
 
 
 
-
 # Methods, Materials, and Analysis\centering
-We used `R programming` [@R] for analysis with the following packages: `janitor` [@janitor], `psych` [@psych], `skimr` [@skimr], `here` [@here], `knitr` [@knitr], `rio` [@rio], `readxl` [@readxl], `DT` [@DT] and `tidyverse` [@tidyverse]. 
-
-
-After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pivot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
-
+We used `R programming` [@R] for analysis with the following packages: `janitor` [@janitor], `psych` [@psych], `skimr` [@skimr], `here` [@here], `knitr` [@knitr], `rio` [@rio], `readxl` [@readxl], `DT` [@DT] and `tidyverse` [@tidyverse]. After loading our data set **css_ghana**, we proceeded to use different functions like `filter()`, `mutate()`, `pivot_longer`, `pivot_wider`, `group_by`, and `select()` to tidy the data.
 
 
 Researchers implemented a two-step, mixed-method approach to assess Millennial and Generation Z perceptions on family planning and to what extent (if any) climate change influences these views. For the purposes of this class, we will be analyzing the survey data we collected. The survey consisted of an online Likert-type questionnaire that was distributed to Ghanaian Millennials (those born between 1981 and 1996) and Generation Z adults (18 years old or older; those born between 1997 and 2004). The current sample size is made up of answers from 130 respondents. Through this survey, participants were asked questions about their personal stances on having children, perceptions of climate change, how much of an impact climate change has on their family planning, and their feelings towards the effectiveness of climate change messages. A scale from zero to five was provided for respondents to record their answers, with zero indicating no impact and five stipulating high impact. 
@@ -67,7 +63,6 @@ We are utilizing the data collected to quantitatively determine if there are any
 
 
 These are some descriptive information about the data. 
-
 
 
 ```{r tidying data, include=FALSE}
@@ -288,8 +283,41 @@ research_questions %>%
   coord_flip()
 
 ```
+<<<<<<< HEAD
+=======
 
-# Discussion\centering
+
+```{r eval=FALSE}
+css_ghana %>% 
+ summarise(research_questions = mean(research_questions, na.rm = TRUE), 
+           final_responses = mean(final_responses, na.rm = TRUE)) %>% 
+  mutate(
+    research_questions = c("How concerned are you about climate change?", "How should addressing issues of climate change be prioritized?", "Think about messages you’ve seen in the media about climate change. How effective were they in terms of providing information?", "How much of an influence has climate change had on your desire to have children?"),
+    final_responses = factor(final_responses, level = c(1, 2, 3, 4, 5))
+    ) %>% 
+  ggplot(aes(x = NROW(css_ghana), y = final_responses, fill = age_gen_recoded)) + 
+  geom_col(position = "dodge") + 
+  facet_wrap(~research_questions, 
+                  ncol = 1,
+                  nrow = 6) + 
+       theme_minimal()  + 
+       scale_fill_colorblind() + 
+       labs(
+         title = "Climate Change and Family Planning Perceptions", 
+         subtitle = "by Generation", 
+         x = "Number of Responses", 
+         y = "Level of Perception",
+         fill = "Generation", 
+         caption = "(Data obtained from a survey in Ghana, West Africa)"
+       )
+```
+>>>>>>> main
+
+# Findings\centering
+This graph demonstrates climate change and family perceptions by generation broken down by four key questions asked in interviews. 1.) How concerned are you about climate change? 2.) How should addressing issues of climate change be prioritized? 3.) How effective is climate change news in terms of providing information? 4.) How much of an influence has climate change had on your desire to have children? One key insight to highlight from the graph is that although Generation Z is the most concerned about climate change and addresses how these concerns should be prioritized, the data also shows that Generation Z is less likely to be influenced by climate change in their desire to have children. 
+
+# Discussion and Broader impact\centering
+Overall, our initial findings are impactful to better understanding the correlation between climate change and the lessened desire to have children amongst Millennials and Generation Z. The survey data collected in Ghana in 2022 will be helpful to compare to the U.S. and other countries in future data collection, all of which will come together to create a larger snapshot of this topic. Early findings suggest that climate change may have an impact on reproduction decision-making which can be insightful in locations like the U.S. where recent political and economical factors may also contribute. With this data, we can better infer how other countries may respond to similar structures and challenges as well as contribute solutions to current problems. 
 
 
 \newpage
