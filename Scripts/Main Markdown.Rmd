@@ -66,10 +66,11 @@ These are some descriptive information about the data.
 
 
 ```{r tidying data, include=FALSE}
+## Loading Data
 css_ghana <- read_excel(here("Data", "Climate_Synthetic.xlsx"))
 
 
-
+## Tidying Data
 css_ghana <- css_ghana %>% 
   pivot_longer(c("Male", "Female"), 
                names_to = "Gender",
@@ -90,7 +91,10 @@ css_ghana <- css_ghana %>%
                      TRUE ~ "Millennials")) %>% 
    select(1:3, age_gen_recoded, everything())
  
+
 names(css_ghana)[8] = "q_16_not_parent_chid_desire"
+
+## Filtering NAs 
 css_ghana <- css_ghana %>% 
   filter(!is.na(q_10_cc_message_effec_providing_info),
          !is.na( q_17_cc_infuence_child_desire),
@@ -140,7 +144,7 @@ css_ghana$q_10_cc_message_effec_providing_info <- recode(css_ghana$q_10_cc_messa
 
 
 
-## Pivot Wider for Assignment
+## Performing Pivot Wider As part of requirements. Also to recode "Age generation" variable
 css_ghana %>% 
   pivot_wider(
     names_from = age_gen_recoded,
@@ -164,8 +168,8 @@ css_ghana %>%
 
 
 ```{r Descriptives}
-## Changed wording of title and legend slightly
 
+## Changed wording of title and legend slightly
 css_ghana %>% 
   ggplot(aes(q8_cc_priority))+
   geom_bar(aes(fill = age_gen_recoded), position = "dodge") +
@@ -286,6 +290,8 @@ research_questions %>%
 
 
 ```{r eval=FALSE}
+
+## Still thinking through this code so we did not run it. 
 css_ghana %>% 
  summarise(research_questions = mean(research_questions, na.rm = TRUE), 
            final_responses = mean(final_responses, na.rm = TRUE)) %>% 
