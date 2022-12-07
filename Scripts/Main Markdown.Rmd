@@ -287,6 +287,8 @@ research_questions %>%
   coord_flip()
 
 ```
+<<<<<<< HEAD
+=======
 
 
 ```{r eval=FALSE}
@@ -315,6 +317,7 @@ css_ghana %>%
          caption = "(Data obtained from a survey in Ghana, West Africa)"
        )
 ```
+>>>>>>> main
 
 # Findings\centering
 This graph demonstrates climate change and family perceptions by generation broken down by four key questions asked in interviews. 1.) How concerned are you about climate change? 2.) How should addressing issues of climate change be prioritized? 3.) How effective is climate change news in terms of providing information? 4.) How much of an influence has climate change had on your desire to have children? One key insight to highlight from the graph is that although Generation Z is the most concerned about climate change and addresses how these concerns should be prioritized, the data also shows that Generation Z is less likely to be influenced by climate change in their desire to have children. 
